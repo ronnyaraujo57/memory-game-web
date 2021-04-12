@@ -1,0 +1,103 @@
+body {
+	background-color: #00e1f5;
+}
+
+input {
+	background-color: white;
+}
+
+.contenedor {
+  	display: flex;
+  	flex-direction: column;
+	background-color: white;
+	border:1px solid;
+	width: 700px;
+	height: 120px; 
+	margin: auto;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+	/*padding: 25px;*/
+}
+
+.contenedor button {
+	width: 200px;
+	height: 50px;
+	font-size: 40px;
+	margin-top: 10px;
+	/*background-color: white;
+	border-radius: 10px;*/
+}
+
+.contenedor label {
+	font-size: 20px;
+}
+
+.contenedor_table {
+	color: black;
+	background-color: white;
+	border:1px solid;
+	width: 700px;
+	height: 600px; 
+	margin: auto;
+	margin-top: 10px;
+	border-radius: 10px;
+	/*padding: 20px;*/
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+}
+
+.contenedor_boton {
+	margin-top: 10px;
+    display: flex;
+	justify-content: center;
+
+}
+
+.contenedor_boton button {
+	font-size: 30px;
+	width: 300px;
+	/*background-color: white;
+	border-radius: 10px;*/
+}
+
+.contenendor-selector{
+	/*border: 1px solid;*/
+	width: 80%;
+}
+
+.card {
+	border: 1px solid;
+	width: 100px;
+	height: 120px;
+	margin: auto;
+	border-radius: 10px;
+	/*background-color: black;*/
+}
+
+.card2 {
+	border: 1px solid;
+	width: 125px;
+	height: 195px;
+	margin: auto;
+	border-radius: 10px;
+	/*background-color: black;*/
+}
+
+.card3 {
+	border: 1px solid;
+	width: 150px;
+	height: 210px;
+	margin: auto;
+	border-radius: 10px;
+	/*background-color: black;*/
+}
+
+.card4 {
+	border: 1px solid;
+	width: 140px;
+	height: 170px;
+	margin: auto;
+	border-radius: 10px;
+	/*background-color: black;*/
+}

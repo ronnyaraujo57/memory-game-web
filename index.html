@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>memory-game-web</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<script type="text/javascript" src="js/funciones.js"></script>
+</head>
+<body>
+
+<section>
+	<div class="contenedor">
+		<div class="contenendor-selector">
+			<!-- seleccion de pares -->
+			<label>Seleccion de pares: </label>
+			<select id=pares name=pares>º
+				<option>...</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>8</option>
+				<option>10</option>
+			</select>
+		</div>
+		<button id="btnInit" class="forma" onclick="drawCard()">START</button>
+	</div>
+</section>
+<section class="table">
+	<div id="table" class="contenedor_table"></div>
+</section>
+
+<div class="contenedor_boton">
+	<button id="record">Historial de record</button>
+</div>
+
+<script type="text/javascript" src="js/events.js"></script>
+</body>
+</html>
