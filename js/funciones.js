@@ -38,6 +38,7 @@ const indexImageCard = {
 }
 
 const gridColumns = {
+	2 : "auto auto auto auto",
 	4 : "auto auto auto auto",
 	5 : "auto auto auto auto auto",
 	6 : "auto auto auto auto",
@@ -46,6 +47,7 @@ const gridColumns = {
 }
 
 const typeCardClass = {
+	2 : "card3",
 	4 : "card3",
 	5 : "card2",
 	6 : "card4",
@@ -83,14 +85,15 @@ function barajar(array) {
 }
 
 var index;
+var timeRecord;
 
 function drawCard() {
-	var btn = document.getElementById("btnInit");
-	var divTable = document.getElementById("table");
-	var candPares = parseInt(document.getElementById("pares").value);
-	
-	if(btn.innerHTML === "START"){
-		// generando pares de card randon
+	// var btn = document.getElementById("btnInit");
+	// var divTable = document.getElementById("table");
+	var candPares = parseInt(document.getElementById("select_pares").value);
+	if(btnInit.innerHTML === "START"){
+		cronometro(label_clock);
+		// generando pares de card random
 		index = numeroRandom(Object.keys(imageCard).length,candPares);
 		index = barajar(index.concat(index));
 
@@ -99,23 +102,57 @@ function drawCard() {
 		divTable.style.gridTemplateColumns = gridColumns[candPares];
 		for(let i=0; i<candPares*2; i++){
 			divTable.innerHTML += `
-				<img id=card${index[i]}
+				<img id=${i}card${index[i]}
+				name=enable
 				class=${typeCardClass[candPares]} 
-				src="recursos/reversoCard.png" 
-				onclick="changeImg(this)">		
+				src="recursos/reversoCard.png">		
 			`;
 		}
 
-		btn.innerHTML = "STOP";
-	} else
-		btn.innerHTML = "START";
+		btnInit.innerHTML = "Reset";
+	} else {
+		select_pares.value = "...";
+		btnInit.innerHTML = "START";
+		btnInit.setAttribute("disabled", "");
+		label_clock.innerHTML = "00:00:00";
+		divTable.innerHTML = "";
+	}
 }
 
 function changeImg(element) {
-	var indexImage = parseInt(element.id.substring(4));
-	if (element.src.indexOf("recursos/reversoCard.png")  != -1)
+	var indexImage = parseInt(element.id.substring(5));
+	if (element.name != "disable" && element.src.indexOf("recursos/reversoCard.png")  != -1)
 		element.src = imageCard[indexImageCard[indexImage]];
 	else
 		element.src = "recursos/reversoCard.png";
 
+}
+
+function cronometro(element) {
+	var data = element.innerHTML.split(":")
+	var hora = parseInt(data[0]);
+	var minutos = parseInt(data[1]);
+	var segundos = parseInt(data[2]);
+
+	
+	if(minutos > 59){
+		minutos = 0
+		hora++;
+	}
+
+	if(segundos < 60)
+		segundos++;
+	else{
+		segundos = 0
+		minutos++;
+	}
+
+	data[1] = minutos<10? "0" + minutos : minutos;
+	data[2] = segundos<10? "0" + segundos : segundos;
+	element.innerHTML = data[0]+":"+data[1]+":"+data[2];
+	timeRecord = setTimeout(cronometro, 1000, element);
+}
+
+function cronometro_stop() {
+	clearTimeout(timeRecord);
 }

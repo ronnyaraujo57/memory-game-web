@@ -12,9 +12,10 @@
 	<div class="contenedor">
 		<div class="contenendor-selector">
 			<!-- seleccion de pares -->
-			<label>Seleccion de pares: </label>
-			<select id=pares name=pares>º
+			<label>Seleccion de paras: </label>
+			<select id=select_pares name=pares>º
 				<option>...</option>
+				<option>2</option>
 				<option>4</option>
 				<option>5</option>
 				<option>6</option>
@@ -22,15 +23,16 @@
 				<option>10</option>
 			</select>
 		</div>
-		<button id="btnInit" class="forma" onclick="drawCard()">START</button>
+		<button id="btnInit" class="forma" onclick="drawCard()" disabled>START</button>
+		<label id=label_clock>00:00:00</label>
 	</div>
 </section>
 <section class="table">
-	<div id="table" class="contenedor_table"></div>
+	<div id="divTable" class="contenedor_table"></div>
 </section>
 
 <div class="contenedor_boton">
-	<button id="record">Historial de record</button>
+	<button id="btnRecord" disabled>Historial de record</button>
 </div>
 
 <script type="text/javascript" src="js/events.js"></script>
